@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@ body{
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: url("https://drive.google.com/uc?export=download&id=1FMYTsO_vcoLhPCHLFN0lmSY19rDZ2nx8") no-repeat center center;
+  background: url("bg.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -46,7 +46,7 @@ body{
   left:200px;
   width:150px;
   height:150px;
-  background: url("https://drive.google.com/uc?export=download&id=1HXP_RkgbDx0c85G-ykWdUdUQXqio8P2h") no-repeat center center;
+  background: url("player.png") no-repeat center center;
   background-size: contain;
   z-index:3;
 }
@@ -57,7 +57,7 @@ body{
   left:50px;
   width:160px;
   height:160px;
-  background: url("https://drive.google.com/uc?export=download&id=1P4ttVBs5Pw33or3n") no-repeat center center;
+  background: url("junbeom.png") no-repeat center center;
   background-size: contain;
   z-index:3;
 }
@@ -67,7 +67,7 @@ body{
   bottom:150px;
   width:140px;
   height:140px;
-  background: url("https://drive.google.com/uc?export=download&id=1Xj5t1ultCV1gwROmmqybCm2k7lAkshgG") no-repeat center center;
+  background: url("obstacle.png") no-repeat center center;
   background-size: contain;
   z-index:3;
 }
@@ -94,7 +94,7 @@ body{
   <div id="player"></div>
   <div id="enemy"></div>
   <audio autoplay loop>
-    <source src="https://drive.google.com/uc?export=download&id=1CExUwIXuJbGItp1zrql2INRGIYOm-Djg" type="audio/mpeg">
+    <source src="bgm.mp3" type="audio/mpeg">
   </audio>
 </div>
 
@@ -113,6 +113,7 @@ let obstacles=[]
 let start=Date.now()
 let duration=30000
 
+// 키보드 점프
 document.addEventListener("keydown", e=>{
   if((e.code==="Space"||e.code==="ArrowUp")&&!jumping){
     jumping=true
@@ -120,6 +121,7 @@ document.addEventListener("keydown", e=>{
   }
 })
 
+// 모바일 터치 점프
 document.addEventListener("touchstart", e=>{
   if(!jumping){
     jumping=true
@@ -127,6 +129,7 @@ document.addEventListener("touchstart", e=>{
   }
 })
 
+// 장애물 스폰
 function spawnObstacle(){
   let obs=document.createElement("div")
   obs.className="obstacle"
